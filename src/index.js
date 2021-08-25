@@ -12,6 +12,7 @@ function expressionCalculator(expr) {
         if (expr[i] === ')') { clBracket++ }
     }
     if (opBracket !== clBracket) { throw new Error('ExpressionError: Brackets must be paired') }
+    return new Function(`return ${expr}`)()
 }
 
 module.exports = {
